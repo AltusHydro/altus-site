@@ -350,6 +350,10 @@
   .sn-btn-no { padding:0.85rem 1.2rem; border:0.5px solid rgba(144,202,249,0.2); background:transparent; color:#6b7a99; font-family:'Barlow',sans-serif; font-weight:300; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
   .sn-btn-no:hover { color:#90caf9; border-color:rgba(144,202,249,0.4); }
 
+
+  .invest-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  @media(max-width:680px){ .invest-form-grid { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -550,42 +554,65 @@
     <h2 class="section-title fade-in">Ready to invest<br><span>in Altus?</span></h2>
     <p class="section-body fade-in">Leave your details and we'll reach out with our full pitch deck, financials, and Wefunder details when the round opens.</p>
 
-    <form id="investForm" name="investor-interest" action="https://formspree.io/f/mbdpwopl" method="POST" style="max-width:560px;" class="fade-in">
-      <div class="field">
-        <label>Full Name</label>
-        <input type="text" placeholder="Your name" required/>
+    <div class="invest-form-grid">
+      <div class="fade-in">
+        <form id="investForm" name="investor-interest" action="https://formspree.io/f/mbdpwopl" method="POST">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name" required/>
+          </div>
+          <div class="field">
+            <label>Investment Range</label>
+            <select>
+              <option value="" disabled selected>Select a range</option>
+              <option>$100 – $500</option>
+              <option>$500 – $2,500</option>
+              <option>$2,500 – $10,000</option>
+              <option>$10,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Your Background</label>
+            <select>
+              <option value="" disabled selected>Select one</option>
+              <option>Individual investor</option>
+              <option>Angel investor</option>
+              <option>Venture capital</option>
+              <option>Friend / family</option>
+              <option>Sports industry professional</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Why are you interested in Altus?</label>
+            <textarea placeholder="Tell us what excites you about this..."></textarea>
+          </div>
+          <br/>
+          <button type="submit" class="btn-primary">Send My Interest →</button>
+        </form>
+        <div class="form-success" id="investSuccess">
+          <p>We'll be in touch with the full pitch deck soon.</p>
+        </div>
       </div>
-      <div class="field">
-        <label>Investment Range</label>
-        <select>
-          <option value="" disabled selected>Select a range</option>
-          <option>$100 – $500</option>
-          <option>$500 – $2,500</option>
-          <option>$2,500 – $10,000</option>
-          <option>$10,000+</option>
-        </select>
+    <div class="mini-form-card fade-in" style="background:var(--navy); border:0.5px solid rgba(144,202,249,0.2); padding:2rem;">
+      <div style="font-size:0.58rem;letter-spacing:0.4em;color:var(--pink-mid);text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">Follow Us</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.3rem;letter-spacing:0.1em;margin-bottom:0.3rem;">Stay Connected</h4>
+      <p style="font-size:0.75rem;color:var(--muted);line-height:1.6;margin-bottom:1.4rem;">Follow our journey and stay up to date on everything Altus.</p>
+      <div style="display:flex;flex-direction:column;gap:0.8rem;">
+        <a href="https://www.instagram.com/drinkaltus_?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(244,143,177,0.25);color:var(--pink-mid);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(244,143,177,0.5)'" onmouseout="this.style.borderColor='rgba(244,143,177,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f48fb1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#f48fb1" stroke="none"/></svg>
+          Instagram @DrinkAltus_
+        </a>
+        <a href="https://www.tiktok.com/@drinkaltus?_r=1&_t=ZT-95MIysyujjq" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(244,143,177,0.25);color:var(--pink-mid);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(244,143,177,0.5)'" onmouseout="this.style.borderColor='rgba(244,143,177,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f48fb1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          TikTok @DrinkAltus
+        </a>
+        <a href="https://www.linkedin.com/in/cooper-pisani-1845a9311" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(144,202,249,0.25);color:var(--blue-light);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(144,202,249,0.5)'" onmouseout="this.style.borderColor='rgba(144,202,249,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#90caf9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><line x1="7" y1="7" x2="7" y2="7.5" stroke-width="2"/><path d="M11 10v7M11 13c0-2 6-2 6 1v3"/></svg>
+          LinkedIn — Cooper Pisani
+        </a>
       </div>
-      <div class="field">
-        <label>Your Background</label>
-        <select>
-          <option value="" disabled selected>Select one</option>
-          <option>Individual investor</option>
-          <option>Angel investor</option>
-          <option>Venture capital</option>
-          <option>Friend / family</option>
-          <option>Sports industry professional</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Why are you interested in Altus?</label>
-        <textarea placeholder="Tell us what excites you about this..."></textarea>
-      </div>
-      <br/>
-      <button type="submit" class="btn-primary">Send My Interest →</button>
-    </form>
-    <div class="form-success" id="investSuccess">
-      <p>We'll be in touch with the full pitch deck soon.</p>
+    </div>
     </div>
   </div>
 </section>
