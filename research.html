@@ -34,7 +34,7 @@
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; animation: fadeUp 0.8s ease 0.3s both; }
 
   section { padding: 5rem 2rem; }
-  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
   .section-label { font-size: 0.6rem; letter-spacing: 0.5em; color: var(--blue-light); text-transform: uppercase; opacity: 0.7; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
   .section-label::before { content: ''; display: block; width: 2rem; height: 0.5px; background: var(--blue-light); opacity: 0.5; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem,4vw,2.8rem); letter-spacing: 0.1em; line-height: 1.2; margin-bottom: 1rem; }
@@ -165,6 +165,33 @@
   .sn-btn-no { padding:0.85rem 1.2rem; border:0.5px solid rgba(144,202,249,0.2); background:transparent; color:#6b7a99; font-family:'Barlow',sans-serif; font-weight:300; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
   .sn-btn-no:hover { color:#90caf9; border-color:rgba(144,202,249,0.4); }
 
+
+  .nav-dropdown { position:relative; display:inline-block; }
+  .nav-dropdown-btn {
+    font-size:0.65rem; letter-spacing:0.3em; color:var(--muted);
+    text-decoration:none; text-transform:uppercase; cursor:pointer;
+    background:none; border:none; padding:0; font-family:'Barlow',sans-serif;
+    font-weight:300; transition:color 0.2s;
+  }
+  .nav-dropdown-btn:hover { color:var(--blue-light); }
+  .nav-dropdown-menu {
+    display:none; position:absolute; right:0; top:calc(100% + 0.8rem);
+    background:rgba(10,14,26,0.97); border:0.5px solid var(--border);
+    backdrop-filter:blur(12px); min-width:160px; z-index:200;
+    padding:0.5rem 0;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a {
+    display:block; padding:0.6rem 1.2rem;
+    font-size:0.65rem; letter-spacing:0.3em; color:var(--muted);
+    text-decoration:none; text-transform:uppercase;
+    transition:color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .nav-dropdown-menu a:hover { color:var(--white); background:rgba(144,202,249,0.06); }
+  .nav-dropdown-menu a.hl { color:var(--pink-mid); }
+  .nav-dropdown-divider { height:0.5px; background:var(--border); margin:0.4rem 0; }
+
 </style>
 </head>
 <body>
@@ -206,7 +233,16 @@
 
 <nav>
   <a href="index.html" class="nav-logo">A<span>·</span>LTUS</a>
-  <a href="index.html" class="nav-back">← Back to Site</a>
+    <div class="nav-dropdown">
+    <a href="index.html" class="nav-dropdown-btn">← Site ▾</a>
+    <div class="nav-dropdown-menu">
+      <a href="index.html">Home</a>
+      <a href="formula.html">Formula</a>
+      <a href="research.html">Research</a>
+      <div class="nav-dropdown-divider"></div>
+      <a href="invest.html" class="hl">Invest</a>
+    </div>
+  </div>
 </nav>
 
 <section class="hero">
@@ -349,6 +385,7 @@
   })();
   
 </script>
+
 
 <!-- FOOTER DISCLAIMER -->
 <div style="background:#06080f; border-top:0.5px solid rgba(144,202,249,0.1); padding:2rem; text-align:center;">
