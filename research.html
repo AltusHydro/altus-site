@@ -143,6 +143,28 @@
   .contact-box h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.3rem; letter-spacing: 0.1em; margin-bottom: 0.3rem; }
   .contact-box > p { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.4rem; }
 
+
+  #surveyNudgePopup {
+    display: none; position: fixed; inset: 0; z-index: 8000;
+    background: rgba(5,8,18,0.92); align-items: center; justify-content: center;
+    padding: 1.5rem; backdrop-filter: blur(6px);
+  }
+  #surveyNudgePopup.show { display: flex; }
+  #surveyNudgeBox {
+    background: #0d1120; border: 0.5px solid rgba(144,202,249,0.3);
+    max-width: 460px; width: 100%; padding: 2.5rem 2.2rem 2rem;
+    animation: fadeUp 0.4s ease both;
+  }
+  #surveyNudgeBox .sn-label { font-size:0.58rem; letter-spacing:0.5em; color:#90caf9; text-transform:uppercase; margin-bottom:0.8rem; display:block; opacity:0.9; }
+  #surveyNudgeBox h3 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:1.6rem; letter-spacing:0.1em; line-height:1.2; margin-bottom:0.8rem; color:#eaeaf5; }
+  #surveyNudgeBox h3 span { color:#90caf9; }
+  #surveyNudgeBox p { font-size:0.8rem; color:#6b7a99; line-height:1.7; margin-bottom:1.8rem; }
+  .sn-btn-row { display:flex; gap:1rem; flex-wrap:wrap; }
+  .sn-btn-yes { flex:1; padding:0.85rem 1.5rem; border:0.5px solid #90caf9; background:transparent; color:#b0d8f8; font-family:'Barlow',sans-serif; font-weight:300; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; text-decoration:none; text-align:center; display:block; transition:all 0.2s; }
+  .sn-btn-yes:hover { background:rgba(144,202,249,0.1); color:#eaeaf5; }
+  .sn-btn-no { padding:0.85rem 1.2rem; border:0.5px solid rgba(144,202,249,0.2); background:transparent; color:#6b7a99; font-family:'Barlow',sans-serif; font-weight:300; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+  .sn-btn-no:hover { color:#90caf9; border-color:rgba(144,202,249,0.4); }
+
 </style>
 </head>
 <body>
@@ -197,121 +219,23 @@
 </section>
 
 <!-- SURVEY FORM -->
-<section>
-  <div class="section-inner">
+<section style="padding: 5rem 0 3rem;">
+  <div style="max-width:860px; margin:0 auto; padding:0 2rem;">
     <div class="section-label fade-in">Product Survey</div>
     <h2 class="section-title fade-in">Tell us what you<br><span>actually want.</span></h2>
     <p class="section-body fade-in">We're making every decision based on real feedback. Your answers directly influence the formula, flavors, pricing, and packaging of Altus.</p>
-
-    <div class="form-card fade-in">
-      <h3>Altus Product Research Survey</h3>
-      <p>All responses are anonymous and used only for product development. Takes about 2 minutes to complete.</p>
-
-      <form id="surveyForm" name="research-survey" action="https://formspree.io/f/mwvwyore" method="POST">
-
-        <div class="field">
-          <label>Full Name</label>
-          <input type="text" name="name" placeholder="Your name" required/>
-        </div>
-
-        <div class="field">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="you@email.com" required/>
-          <div style="font-size:0.65rem;color:var(--muted);margin-top:0.4rem;letter-spacing:0.05em;">Your email will be added to our mailing list for launch updates.</div>
-        </div>
-
-        <hr class="field-divider"/>
-
-        <div class="field">
-          <label>How often do you drink energy or sports drinks?</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="frequency" value="daily"/><span>Every day</span></label>
-            <label class="radio-item"><input type="radio" name="frequency" value="few-week"/><span>A few times a week</span></label>
-            <label class="radio-item"><input type="radio" name="frequency" value="few-month"/><span>A few times a month</span></label>
-            <label class="radio-item"><input type="radio" name="frequency" value="rarely"/><span>Rarely or never</span></label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>What brands do you currently drink? (select all that apply)</label>
-          <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="prime"/><span>Prime</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="celsius"/><span>Celsius</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="gatorade"/><span>Gatorade</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="liquid-iv"/><span>Liquid IV</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="bang"/><span>Bang / Monster / Red Bull</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="brands" value="none"/><span>I don't drink any</span></label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>What bothers you most about current energy drinks?</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="pain" value="caffeine"/><span>Too much caffeine / crashes</span></label>
-            <label class="radio-item"><input type="radio" name="pain" value="artificial"/><span>Artificial ingredients and colors</span></label>
-            <label class="radio-item"><input type="radio" name="pain" value="taste"/><span>Too sweet or chemical taste</span></label>
-            <label class="radio-item"><input type="radio" name="pain" value="price"/><span>Too expensive</span></label>
-            <label class="radio-item"><input type="radio" name="pain" value="kids"/><span>Not safe for kids / young athletes</span></label>
-          </div>
-        </div>
-
-        <hr class="field-divider"/>
-
-        <div class="field">
-          <label>Would you buy a natural, caffeine-free energy drink for sports?</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="buy" value="yes"/><span>Yes — I'd buy it immediately</span></label>
-            <label class="radio-item"><input type="radio" name="buy" value="maybe"/><span>Maybe — depends on taste and price</span></label>
-            <label class="radio-item"><input type="radio" name="buy" value="no"/><span>No — I prefer caffeinated drinks</span></label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>What flavors would you most want? (select all that apply)</label>
-          <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="pink-lemonade"/><span>Pink Lemonade (launching first)</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="watermelon"/><span>Watermelon</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="mango"/><span>Mango</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="strawberry"/><span>Strawberry</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="peach"/><span>Peach</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="flavors" value="orange"/><span>Orange</span></label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>How much would you pay per can?</label>
-          <div class="range-wrapper">
-            <div class="range-labels"><span>$1.99</span><span>$5.99</span></div>
-            <input type="range" min="199" max="599" step="25" value="349" id="priceRange" oninput="updatePrice(this.value)"/>
-            <div class="range-value" id="priceDisplay">$3.49</div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Where would you most likely buy Altus?</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="where" value="online"/><span>Online / direct from website</span></label>
-            <label class="radio-item"><input type="radio" name="where" value="grocery"/><span>Grocery store</span></label>
-            <label class="radio-item"><input type="radio" name="where" value="gym"/><span>Gym or sports facility</span></label>
-            <label class="radio-item"><input type="radio" name="where" value="convenience"/><span>Convenience store</span></label>
-          </div>
-        </div>
-
-        <hr class="field-divider"/>
-
-        <div class="field">
-          <label>Anything else? Feedback, flavor ideas, things you want us to know.</label>
-          <textarea name="feedback" placeholder="Tell us anything — we read every response..."></textarea>
-        </div>
-
-        <br/>
-        <button type="submit" class="btn-primary">Submit My Feedback →</button>
-      </form>
-      <div class="form-success" id="surveySuccess">
-        <h4>Thank you.</h4>
-        <p>Your feedback has been received and will directly shape Altus.</p>
-      </div>
-    </div>
+  </div>
+  <div class="fade-in" style="width:100%; max-width:860px; margin:0 auto; padding:0 2rem;">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeiuq7qXWiH_6IEYyu4Kwpsp6A15eIG5TRYIw-8AQ9FcxDmcA/viewform?embedded=true"
+      width="100%"
+      height="2918"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      style="border:none; display:block; min-height:2918px;"
+      loading="lazy"
+    >Loading…</iframe>
   </div>
 </section>
 
@@ -334,16 +258,22 @@
     </div>
 
     <div class="mini-form-card fade-in">
-      <div style="font-size:0.58rem;letter-spacing:0.4em;color:var(--pink-mid);text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">Contact</div>
-      <h4>Get in Touch</h4>
-      <p>Questions, partnerships, press, or just want to talk about Altus — reach us directly.</p>
-      <div style="padding:1rem; border:0.5px solid rgba(244,143,177,0.2); background:var(--navy); margin-bottom:1rem;">
-        <div style="font-size:0.6rem;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:0.4rem;">Email</div>
-        <a href="/cdn-cgi/l/email-protection#f4b19a9186938db490869d9a9f9598808187da879c9b84" style="color:var(--pink-mid);text-decoration:none;font-size:0.88rem;letter-spacing:0.05em;"><span class="__cf_email__" data-cfemail="5a1f343f283d231a3e283334313b362e2f29742932352a">[email&#160;protected]</span></a>
-      </div>
-      <div style="display:flex;gap:1rem;margin-top:1rem;">
-        <a href="https://instagram.com/DrinkAltus_" target="_blank" style="font-size:0.65rem;letter-spacing:0.25em;color:var(--muted);text-decoration:none;text-transform:uppercase;">Instagram →</a>
-        <a href="#" onclick="return false;" title="LinkedIn coming soon" target="_blank" style="font-size:0.65rem;letter-spacing:0.25em;color:var(--muted);text-decoration:none;text-transform:uppercase;">LinkedIn →</a>
+      <div style="font-size:0.58rem;letter-spacing:0.4em;color:var(--pink-mid);text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">Follow Us</div>
+      <h4>Stay Connected</h4>
+      <p>Follow our journey and stay up to date on everything Altus.</p>
+      <div style="display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem;">
+        <a href="https://www.instagram.com/drinkaltus_?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(244,143,177,0.25);color:var(--pink-mid);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(244,143,177,0.5)'" onmouseout="this.style.borderColor='rgba(244,143,177,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f48fb1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#f48fb1" stroke="none"/></svg>
+          Instagram @DrinkAltus_
+        </a>
+        <a href="https://www.tiktok.com/@drinkaltus?_r=1&_t=ZT-95MIysyujjq" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(244,143,177,0.25);color:var(--pink-mid);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(244,143,177,0.5)'" onmouseout="this.style.borderColor='rgba(244,143,177,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f48fb1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          TikTok @DrinkAltus
+        </a>
+        <a href="https://www.linkedin.com/in/cooper-pisani-1845a9311" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;border:0.5px solid rgba(144,202,249,0.25);color:var(--blue-light);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(144,202,249,0.5)'" onmouseout="this.style.borderColor='rgba(144,202,249,0.25)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#90caf9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><line x1="7" y1="7" x2="7" y2="7.5" stroke-width="2"/><path d="M11 10v7M11 13c0-2 6-2 6 1v3"/></svg>
+          LinkedIn — Cooper Pisani
+        </a>
       </div>
     </div>
 
@@ -358,7 +288,27 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+  function closeSurveyNudge() {
+    document.getElementById('surveyNudgePopup').classList.remove('show');
+  }
+  function showSurveyNudge() {
+    setTimeout(function() {
+      document.getElementById('surveyNudgePopup').classList.add('show');
+    }, 1200);
+  }
+
+  var miniEl = document.getElementById('miniWaitlistForm');
+  if (miniEl) {
+    miniEl.addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('miniWaitlistSuccess').style.display = 'block';
+      showSurveyNudge();
+    });
+  }
+
+</script><script>
   function updatePrice(val) {
     document.getElementById('priceDisplay').textContent = '$' + (val / 100).toFixed(2);
   }
@@ -396,5 +346,9 @@
   
 </script>
 
-</body>
-</html>
+
+<div id="surveyNudgePopup">
+  <div id="surveyNudgeBox">
+    <span class="sn-label">One More Thing</span>
+    <h3>Help us build<br><span>the right drink.</span></h3>
+    <p>Thank you for submitting. While you're here, take 2 minutes to fill out our full product research survey — your answers directly shape the Altus formula, flavo
