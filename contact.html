@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Altus — Product Research</title>
+<title>Altus — Contact</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -68,14 +68,21 @@
   .fade-in { opacity:0; transform:translateY(22px); transition:opacity 0.7s ease,transform 0.7s ease; }
   .fade-in.visible { opacity:1; transform:translateY(0); }
   
-  .hero-sub-page { min-height:65vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:8rem 3rem 4rem; position:relative; overflow:hidden; text-align:center; }
-  .mountains { position:absolute; bottom:0; left:0; right:0; opacity:0.12; }
-  .hero-sub-label { font-size:0.58rem; letter-spacing:0.5em; color:var(--blue-light); text-transform:uppercase; opacity:0.7; margin-bottom:1.2rem; animation:fadeUp 0.9s ease both; }
-  .hero-sub-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(2.5rem,7vw,5rem); letter-spacing:0.1em; line-height:1.1; animation:fadeUp 0.9s ease 0.1s both; }
-  .hero-sub-title em { font-style:italic; color:var(--pink-mid); }
-  .hero-sub-dot { width:5px; height:5px; border-radius:50%; background:var(--pink-deep); margin:1rem auto; animation:fadeUp 0.9s ease 0.2s both; }
-  .hero-sub-tagline { font-size:0.68rem; letter-spacing:0.4em; color:var(--muted); text-transform:uppercase; animation:fadeUp 0.9s ease 0.25s both; }
-  .stay-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .hero-sub-page { min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8rem 3rem 3.5rem;position:relative;overflow:hidden;text-align:center; }
+  .mountains { position:absolute;bottom:0;left:0;right:0;opacity:0.12; }
+  .hero-sub-label { font-size:0.58rem;letter-spacing:0.5em;color:var(--blue-light);text-transform:uppercase;opacity:0.7;margin-bottom:1.2rem;animation:fadeUp 0.9s ease both; }
+  .hero-sub-title { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.5rem,7vw,5rem);letter-spacing:0.1em;line-height:1.1;animation:fadeUp 0.9s ease 0.1s both; }
+  .hero-sub-title em { font-style:italic;color:var(--pink-mid); }
+  .hero-sub-dot { width:5px;height:5px;border-radius:50%;background:var(--pink-deep);margin:1rem auto;animation:fadeUp 0.9s ease 0.2s both; }
+  .hero-sub-tagline { font-size:0.68rem;letter-spacing:0.4em;color:var(--muted);text-transform:uppercase;animation:fadeUp 0.9s ease 0.25s both; }
+  .two-col { display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start; }
+  .form-card { background:var(--navy2);border:0.5px solid var(--border);padding:2.2rem; }
+  .form-card h3 { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;letter-spacing:0.1em;margin-bottom:0.3rem; }
+  .form-card > p { font-size:0.76rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;border-bottom:0.5px solid var(--border);padding-bottom:1.1rem; }
+  .link-btns { display:flex;flex-direction:column;gap:0.7rem;margin-top:1.2rem; }
+  .link-btn { display:block;padding:0.75rem 1.2rem;border:0.5px solid var(--border);color:var(--muted);text-decoration:none;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;transition:all 0.2s; }
+  .link-btn:hover { border-color:rgba(144,202,249,0.35);color:var(--blue-light); }
+  @media(max-width:768px){ .two-col{grid-template-columns:1fr;gap:2rem;} }
   @media(max-width:768px){ nav{padding:1rem 1.5rem;} .section{padding:4rem 1.5rem;} .site-footer{padding:2rem 1.5rem;} .footer-disclaimer{padding:1.5rem;} }
 </style>
 </head>
@@ -87,8 +94,8 @@
     <div class="nav-more-menu">
       <a href="index.html">Home</a>
       <a href="formula.html">Formula</a>
+      <a href="research.html">Research</a>
       <div class="nav-more-divider"></div>
-      <a href="contact.html">Contact</a>
       <a href="waitlist.html">Waitlist</a>
       <div class="nav-more-divider"></div>
       <a href="invest.html" class="hl">Invest</a>
@@ -97,43 +104,47 @@
 </nav>
 <section class="hero-sub-page">
   <svg class="mountains" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,320 200,90 400,320" fill="#90caf9"/>
-    <polygon points="180,320 430,45 680,320" fill="#f48fb1"/>
-    <polygon points="480,320 700,110 920,320" fill="#64b5f6"/>
-    <polygon points="760,320 1010,30 1260,320" fill="#1e88e5"/>
+    <polygon points="0,320 200,90 400,320" fill="#90caf9"/><polygon points="180,320 430,45 680,320" fill="#f48fb1"/>
+    <polygon points="480,320 700,110 920,320" fill="#64b5f6"/><polygon points="760,320 1010,30 1260,320" fill="#1e88e5"/>
     <polygon points="1060,320 1250,95 1440,320" fill="#f48fb1"/>
   </svg>
-  <div class="hero-sub-label">Product Research</div>
-  <div class="hero-sub-title">Your feedback<br><em>shapes the formula.</em></div>
+  <div class="hero-sub-label">Contact</div>
+  <div class="hero-sub-title">Get in touch<br><em>with us.</em></div>
   <div class="hero-sub-dot"></div>
-  <div class="hero-sub-tagline">Takes 2 minutes · Directly influences the product</div>
+  <div class="hero-sub-tagline">We respond to all messages within 48 hours</div>
 </section>
 
-<!-- GOOGLE FORM -->
-<section class="section" style="background:var(--navy2);">
-  <div class="section-inner">
-    <div class="s-label fade-in">Product Survey</div>
-    <h2 class="s-title fade-in">Tell us what you<br><em>actually want.</em></h2>
-    <p class="s-body fade-in" style="margin-bottom:2.5rem;">We're making every decision based on real feedback. Your answers directly influence the formula, flavors, pricing, and packaging of Altus.</p>
-    <div class="fade-in" style="width:100%;">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeiuq7qXWiH_6IEYyu4Kwpsp6A15eIG5TRYIw-8AQ9FcxDmcA/viewform?embedded=true"
-        width="100%" height="2918" frameborder="0" marginheight="0" marginwidth="0"
-        style="border:none;display:block;min-height:2918px;">Loading…</iframe>
-    </div>
-  </div>
-</section>
-
-<div style="padding:0 3rem;"><div class="div-row fade-in"><div class="div-line"></div><div class="div-text">Stay Connected</div><div class="div-line"></div></div></div>
-
-<!-- STAY CONNECTED -->
 <section class="section">
   <div class="section-inner">
-    <div class="stay-grid">
+    <div class="two-col">
+      <div class="form-card fade-in">
+        <h3>Send us a message</h3>
+        <p>Questions, partnerships, media inquiries, or just want to learn more — we'd love to hear from you.</p>
+        <form id="contactForm" action="https://formspree.io/f/xwvwyowe" method="POST">
+          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required/></div>
+          <div class="field"><label>Subject</label>
+            <select name="subject">
+              <option value="" disabled selected>Select a topic</option>
+              <option>General question</option>
+              <option>Understanding Terms</option>
+              <option>Partnership or collaboration</option>
+              <option>Press or media</option>
+              <option>Investment inquiry</option>
+              <option>Product feedback</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="What's on your mind..." required></textarea></div>
+          <br/><button type="submit" class="btn-pink">Send Message →</button>
+        </form>
+        <div class="form-success" id="contactSuccess"><p>Message received. We'll be in touch within 48 hours.</p></div>
+      </div>
+
       <div class="fade-in">
-        <div class="s-label" style="margin-bottom:0.6rem;">Follow Us</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;letter-spacing:0.08em;margin-bottom:0.5rem;">Stay connected<br><span style="font-style:italic;color:var(--pink-mid);">with Altus.</span></h3>
-        <p style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">Follow our journey and stay up to date on everything Altus.</p>
-        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+        <div class="s-label" style="margin-bottom:0.6rem;">Stay Connected</div>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;letter-spacing:0.1em;margin-bottom:0.4rem;">Follow the journey</h4>
+        <p style="font-size:0.78rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem;">Follow along as we build Altus from the ground up.</p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
           <a href="https://www.instagram.com/drinkaltus_?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="social-btn">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             Instagram @DrinkAltus_
@@ -147,17 +158,11 @@
             LinkedIn — Cooper Pisani
           </a>
         </div>
-      </div>
-      <div class="fade-in" style="background:var(--navy2);border:0.5px solid var(--border);padding:2rem;">
-        <div class="s-label" style="margin-bottom:0.6rem;">Early Access</div>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.3rem;letter-spacing:0.1em;margin-bottom:0.3rem;">Join the Waitlist</h4>
-        <p style="font-size:0.75rem;color:var(--muted);line-height:1.6;margin-bottom:1.4rem;">Be first to know when Altus launches.</p>
-        <form id="wlForm" action="https://formspree.io/f/mvzvlabe" method="POST">
-          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required/></div>
-          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="you@email.com" required/></div>
-          <br/><button type="submit" class="btn-pink">Join →</button>
-        </form>
-        <div class="form-success" id="wlSuccess"><p>You're on the list.</p></div>
+        <p style="font-size:0.68rem;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:0.8rem;">Also explore</p>
+        <div class="link-btns">
+          <a href="research.html" class="link-btn">→ Fill out our research form</a>
+          <a href="waitlist.html" class="link-btn">→ Join the waitlist</a>
+        </div>
       </div>
     </div>
   </div>
@@ -165,7 +170,7 @@
 
 <footer class="site-footer">
   <a href="index.html" class="footer-logo">ALTUS</a>
-  <div class="footer-meta">Product Research · Est. 2026</div>
+  <div class="footer-meta">Get in Touch · Est. 2026</div>
   <div class="footer-links"></div>
 </footer>
 <div class="footer-disclaimer">
@@ -180,9 +185,9 @@
     if (el && !el.contains(e.target)) el.classList.remove('open');
   });
   
-  document.getElementById('wlForm').addEventListener('submit', function(e) {
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault(); this.style.display='none';
-    document.getElementById('wlSuccess').style.display='block';
+    document.getElementById('contactSuccess').style.display='block';
   });
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
